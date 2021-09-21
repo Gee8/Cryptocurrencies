@@ -18,6 +18,6 @@ To determine the k value for our K-Means algorithm, we created an elbow curve to
 ## Visualizing Cryptocurrencies Results
 Now that we have our principal components and class for each cryptocurrency, we created a 3D-scatter plot containing each cryptos principal component values, their name, and which algorithm is used. Using hvPlot, we created a sortable table containing the name, algorithm, prooftype, total coin supply, coins mined and their class. Finally, we used `MinMaxScaler().fit_transform()` to scale the `TotalCoinsMined` and `TotalCoinSupply` columns and created a new dataframe with these scaled values. Using this dataframe we created a 2D-scatter plot where `x = 'TotalCoinsMined'`, `y = 'TotalCoinSupply'`, `hover_cols = 'CoinName'`, and colored `by = 'Class'`. Shown below are the sortable table, the 3D-scatter plot, and the 2D-scatter plot.
 
-<img width="300" alt="sortableTable" src="Resources\cryptoClassDf.png">
-<img width="300" alt="crypto3DPlot" src="Resources\Crypto3DPlot.png">
-<img width="300" alt="crypto2DPlot" src="Resources\Crypto2DPlot.png">
+<img width="400" alt="sortableTable" src="Resources\cryptoClassDf.png">
+<img width="400" alt="crypto3DPlot" src="Resources\Crypto3DPlot.png">
+<img width="400" alt="crypto2DPlot" src="Resources\Crypto2DPlot.png">
