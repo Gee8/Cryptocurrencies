@@ -6,10 +6,18 @@ For this analysis we use a K-means algorithm to cluster tradable cryptocurrencie
 For preprocessing, we loaded the data into a Pandas DataFrame. We then kept only the cryptos such that `crypto_df.IsTrading == True`. We dropped all rows where coins we not mined and used Pandas `get_dummies()` function to numericize the `Algorithm` and `ProofType` columns. Finally, we scaled the data using `StandardScaler().fit_transform()`.
 
 ## Reducing Data Dimensions Using PCA
-Using the scaled data, we used PCA with `n_components=3` to reduce the dimension of the data to three principal components, and placed these in a new dataframe with the name of the cryptocurrencies as the index.
+Using the scaled data, we used PCA with `n_components=3` to reduce the dimension of the data to three principal components, and placed these in a new dataframe with the name of the cryptocurrencies as the index. Shown below is the principal component dataframe.
+
+<img width="200" alt="pcDF" src="Resources\pcDF.png">
 
 ## Clustering Cryptocurrencies Using K-Means
-To determine the k value for our K-Means algorithm, we created an elbow curve to determine k=4 would work best. We then fed our data into our `KMeans()` function to get the predictions for which class each crypto belonged to. We then created a new dataframe with all of the original information, including the principal components and the class.
+To determine the k value for our K-Means algorithm, we created an elbow curve to determine k=4 would work best. We then fed our data into our `KMeans()` function to get the predictions for which class each crypto belonged to. We then created a new dataframe with all of the original information, including the principal components and the class. Shown below are screenshots of the elbow curve created to determine our best k value.
+
+<img width="300" alt="elbowCurve" src="Resources\elbowCurveCrypto.png">
 
 ## Visualizing Cryptocurrencies Results
-Now that we have our principal components and class for each cryptocurrency, we created a 3D-scatter plot containing each cryptos principal component values, their name, and which algorithm is used. Using hvPlot, we created a sortable table containing the name, algorithm, prooftype, total coin supply, coins mined and their class. Finally, we used `MinMaxScaler().fit_transform()` to scale the `TotalCoinsMined` and `TotalCoinSupply` columns and created a new dataframe with these scaled values. Using this dataframe we created a 2D scatter plot where `x = 'TotalCoinsMined'`, `y = 'TotalCoinSupply'`, `hover_cols = 'CoinName'`, and colored `by = 'Class'`.
+Now that we have our principal components and class for each cryptocurrency, we created a 3D-scatter plot containing each cryptos principal component values, their name, and which algorithm is used. Using hvPlot, we created a sortable table containing the name, algorithm, prooftype, total coin supply, coins mined and their class. Finally, we used `MinMaxScaler().fit_transform()` to scale the `TotalCoinsMined` and `TotalCoinSupply` columns and created a new dataframe with these scaled values. Using this dataframe we created a 2D-scatter plot where `x = 'TotalCoinsMined'`, `y = 'TotalCoinSupply'`, `hover_cols = 'CoinName'`, and colored `by = 'Class'`. Shown below are the sortable table, the 3D-scatter plot, and the 2D-scatter plot.
+
+<img width="300" alt="sortableTable" src="Resources\cryptoClassDf.png">
+<img width="300" alt="crypto3DPlot" src="Resources\Crypto3DPlot.png">
+<img width="300" alt="crypto2DPlot" src="Resources\Crypto2DPlot.png">
