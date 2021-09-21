@@ -13,7 +13,7 @@ Using the scaled data, we used PCA with `n_components=3` to reduce the dimension
 ## Clustering Cryptocurrencies Using K-Means
 To determine the k value for our K-Means algorithm, we created an elbow curve to determine k=4 would work best. We then fed our data into our `KMeans()` function to get the predictions for which class each crypto belonged to. We then created a new dataframe with all of the original information, including the principal components and the class. Shown below are screenshots of the elbow curve created to determine our best k value.
 
-<img width="300" alt="elbowCurve" src="Resources\elbowCurveCrypto.png">
+<img width="500" alt="elbowCurve" src="Resources\elbowCurveCrypto.png">
 
 ## Visualizing Cryptocurrencies Results
 Now that we have our principal components and class for each cryptocurrency, we created a 3D-scatter plot containing each cryptos principal component values, their name, and which algorithm is used. Using hvPlot, we created a sortable table containing the name, algorithm, prooftype, total coin supply, coins mined and their class. Finally, we used `MinMaxScaler().fit_transform()` to scale the `TotalCoinsMined` and `TotalCoinSupply` columns and created a new dataframe with these scaled values. Using this dataframe we created a 2D-scatter plot where `x = 'TotalCoinsMined'`, `y = 'TotalCoinSupply'`, `hover_cols = 'CoinName'`, and colored `by = 'Class'`. Shown below are the sortable table, the 3D-scatter plot, and the 2D-scatter plot.
